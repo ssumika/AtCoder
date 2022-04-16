@@ -10,6 +10,8 @@
 
 using namespace std;
 
+#define mod 998244353
+
 int main(){
     int n;
     cin>>n;
