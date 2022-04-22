@@ -11,6 +11,7 @@
 using namespace std;
 
 #define mod 998244353
+#define ll long long
 
 int main(){
     int n;
