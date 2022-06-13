@@ -17,7 +17,7 @@ struct Edge {
     Edge(long long to, long long cost) : to(to), cost(cost) {}
 };
 using Graph = vector<vector<Edge>>;
-using P = pair<long long, int>;
+using P = pair<long long, long long>;
 const long long INF = 1LL << 60;
 /* dijkstra(G,s,dis)
     入力：グラフ G, 開始点 s, 距離を格納する dis
@@ -25,7 +25,8 @@ const long long INF = 1LL << 60;
     副作用：dis が書き換えられる
 */
 
-void dijkstra(const Graph &G, int s, vector<long long> &dis) {
+vector<long long> dijkstra(const Graph &G, int s) {
+    vector<long long> dis;
     int N = G.size();
     dis.resize(N, INF);
     priority_queue<P, vector<P>, greater<P>> pq;  // 「仮の最短距離, 頂点」が小さい順に並ぶ
@@ -45,6 +46,7 @@ void dijkstra(const Graph &G, int s, vector<long long> &dis) {
             }
         }
     }
+    return dis;
 }
 
 
@@ -63,14 +65,14 @@ int main(){
         
     }
 
-    for(int i=0; i<1; i++){
-        vector<long long> dis;
-        dijkstra(G,0,dis);
-        int ans=dis[i];
-        dijkstra(G,n-1,dis);
-        ans+=dis[i];
+    vector<long long> dis;
+    vector<long long> disn;
 
-        cout<<ans<<endl;
+    dis=dijkstra(G,0);
+    disn=dijkstra(G,n-1);
+
+    for(int i=0; i<n; i++){
+        cout<<dis[i]+disn[i]<<endl;
     }
     
 }
