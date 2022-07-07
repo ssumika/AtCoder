@@ -9,9 +9,10 @@
 #include<queue>
 
 using namespace std;
+using ll=long long;
 
 #define mod 998244353
-#define ll long long
+
 
 int main(){
     int n;
