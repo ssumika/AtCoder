@@ -15,11 +15,8 @@ using ll=long long;
 
 
 int main(){
-    int n;
-    cin>>n;
-    vector<int> x(n);
-    vector<int> y(n);
-    for(int i=0; i<n; i++){
-        cin>>x[i]>>y[i];
-    }
+    int a,b,c;
+    cin>>a>>b>>c;
+    if((a<=b && b<=c) || (c<=b && b<=a)) cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
 }
