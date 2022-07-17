@@ -13,31 +13,18 @@ using ll=long long;
 
 #define mod 998244353
 
-long long pow(long long x,long long n){
-    long long ans=1;
-    while(n>0){
-        if(n%2==1){
-            ans*=x;
-            ans%=mod;
-        }
-        n/=2;
-        x*=x;
-        x%=mod;
-    }
-    return ans;
-}
-
 int main(){
     ll n,x,y;
     cin>>n>>x>>y;
 
-    ll sum=0;
-    for(ll k=2; k<=n; k++){
-        for(ll i=k-1; i>=1; i--){
-            ll j=k-i;
-            sum+=pow(x,i)*pow(y,j);
-        }
-    }
-    cout<<sum<<endl;
+    vector<ll> r(n+1);
+    vector<ll> b(n+1);
     
+    r[1]=0;
+    b[1]=1;
+    for(int i=2; i<=n; i++){
+        b[i]=r[i-1]+b[i-1]*y;
+        r[i]=r[i-1]+b[i]*x;
+    }
+    cout<<r[n]<<endl;
 }
