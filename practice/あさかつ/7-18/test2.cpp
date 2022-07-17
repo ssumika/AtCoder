@@ -24,19 +24,23 @@ bool compare_second(pair<int, int> a, pair<int, int> b) {
 int main(){
     int n;
     cin>>n;
-    vector<string> s(n);
-    vector<int> t(n);
-    set<string> ss;
-    vector<pair<int,int>> st;
+    map<string,int> m;
+
+    int ans=0;
+    int index;
     int count=0;
     for(int i=0; i<n; i++){
-        cin>>s[i]>>t[i];
-        ss.insert(s[i]);
-        if(ss.size()!=count){
-            st.push_back(make_pair(i+1,t[i]));
+        string s;
+        int t;
+        cin>>s>>t;
+        m[s]=t;
+        if(m.size()!=count){
+            if(ans<t){
+                ans=t;
+                index=i+1;
+            }
         }
-        count=ss.size();
+        count=m.size();
     }
-    std::sort(st.begin(),st.end(),compare_second);
-    std::cout<<st[0].first<<endl;
+    cout<<index<<endl;
 }
