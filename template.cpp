@@ -7,6 +7,7 @@
 #include<unordered_set>
 #include<set>
 #include<queue>
+#include<numeric>
 
 using namespace std;
 using ll=long long;
