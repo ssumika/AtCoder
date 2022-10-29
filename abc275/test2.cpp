@@ -22,7 +22,7 @@ int main(){
     if(ans>=0){
         cout<<ans<<endl;
     }else{
-        while(ans>=0){
+        while(ans<0){
             ans+=mod;
         }
         cout<<ans<<endl;
