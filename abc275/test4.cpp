@@ -13,7 +13,7 @@ using namespace std;
 using ll=long long;
 
 #define mod 998244353
-static map<ll,ll> memo;
+map<ll,ll> memo;
 
 ll f(ll n){
     if(n==0){
